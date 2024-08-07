@@ -229,7 +229,7 @@
     }
     .timeline-item .timeline-content {
         width: 80%;
-        height: 350px;
+        height: 380px;
     }
     .timeline-item .timeline-content.above {
         /* Position above the line */
@@ -244,8 +244,16 @@
           transform: translateX(-45%);
       }
       .timeline-item .timeline-point {
-        top: 31%;
+        top: 27%;
       }
+}
+@media (max-width: 478px) {
+  
+  .timeline-item .timeline-content {
+    width: 80%;
+    height: 400px;
+    padding: 20px;
+}
 }
 
   /* General line styling */
