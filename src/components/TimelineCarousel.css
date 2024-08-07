@@ -180,8 +180,8 @@
       height: 16px;
       background: #d4af37; /* Match the point color to the image */
       border-radius: 50%;
-      top: 43%;
-        left: 10%;
+      top: 31%;
+        left: 15%;
         transform: translate(-50%, -50%);
       display: block; /* Ensure points are visible */
       z-index: 2;
@@ -244,7 +244,7 @@
           transform: translateX(-45%);
       }
       .timeline-item .timeline-point {
-        top: 36%;
+        top: 31%;
       }
 }
 
