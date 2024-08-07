@@ -1,0 +1,251 @@
+.timeline-container {
+    position: relative;
+    margin-top: 300px; /* Adjust this value to lower the timeline on the screen */
+  }
+  
+  .timeline-item {
+    position: relative;
+    text-align: left; /* Align text to the left */
+    display: flex;
+    justify-content: center; /* Center the timeline content */
+  }
+  
+  .timeline-item .timeline-content {
+    position: absolute;
+    width: 100%;
+    max-width: 300px;
+    /* height: 200px; Fixed height for content boxes */
+    overflow: hidden; /* Hide overflow content */
+    text-overflow: ellipsis; /* Add ellipsis for text overflow */
+    transform: translateX(-50%);
+    left: 50%;
+    display: flex;
+    flex-direction: column; /* Ensure children are stacked vertically */
+  }
+  
+  .timeline-item .timeline-content.above {
+    bottom: calc(100% + 20px); /* Adjust this value as needed */
+    left: 55%; /* Shift to the left */
+    transform: translateX(-45%); /* Adjust the transform to match the left shift */
+  }
+  
+  .timeline-item .timeline-content.below {
+    top: calc(100% + 20px); /* Adjust this value as needed */
+    left: 55%; /* Shift to the left */
+    transform: translateX(-45%);
+  }
+  
+  
+  .timeline-item .timeline-point {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #d4af37; /* Match the point color to the image */
+    border-radius: 50%;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .timeline-item .timeline-content.above {
+    flex-direction: column-reverse; /* Flip the order of elements above the line */
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-content.above {
+    bottom: calc(100% + 20px); /* Position for odd items above the line */
+  }
+  
+  .timeline-item:nth-child(even) .timeline-content.above {
+    bottom: calc(100% + 40px); /* Adjust this to further position even items above the line */
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-content.below {
+    top: calc(100% + 20px); /* Position for odd items below the line */
+  }
+  
+  .timeline-item:nth-child(even) .timeline-content.below {
+    top: calc(100% + 40px); /* Adjust this to further position even items below the line */
+  }
+  
+  .timeline-item .timeline-content > div {
+    margin-bottom: 8px;
+  }
+  
+  button {
+    background: #d4af37; /* Default button color */
+    color: white;
+    border: none;
+    padding: 20px; /* Increase padding for larger buttons */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px; /* Increase font size for larger buttons */
+    transition: background 0.3s; /* Smooth transition for background color */
+  }
+  
+  button:disabled {
+    background: #e0e0e0; /* Gray color when disabled */
+    cursor: not-allowed;
+  }
+  
+  /* Align the buttons with the timeline */
+  button.prev,
+  button.next {
+    position: absolute;
+    top: 50%; /* Align with the middle of the timeline */
+    transform: translateY(-50%);
+  }
+  
+  button.prev {
+    left: 0;
+    border-radius: 0 4px 4px 0;
+  }
+  
+  button.next {
+    right: 0;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  /* Responsive styles */
+ 
+  
+  button:disabled, button.prev:disabled, button.next:disabled {
+    background: #e0e0e0;
+    cursor: not-allowed;
+  }
+  
+  /* Align the buttons with the timeline */
+  button.prev,
+  button.next {
+    position: absolute;
+    top: 50%; /* Align with the middle of the timeline */
+    transform: translateY(-50%);
+    padding: 5px 10px 5px 10px;
+    z-index: 3;
+    background-color: #d4af37;
+  }
+  
+  /* Responsive styles */
+/* Responsive styles */
+@media (max-width: 768px) {
+    .timeline-container {
+        width: 80%;
+      margin-top: 0; /* Adjust margin for mobile view */
+      height: 350px;
+    }
+    
+    .timeline-item {
+      width: 100%;
+      text-align: left; /* Align text to the left on mobile */
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center align items */
+    }
+  
+    .timeline-item .timeline-content {
+        height: 350px; /* Allow height to adjust based on content */
+        position: relative;
+        transform: none;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%; /* Make the content cover the full width */
+        max-width: none; /* Remove max-width restriction */
+        padding: 20px; /* Add padding for mobile view */
+      }
+      .timeline-item .timeline-content.above,
+      .timeline-item .timeline-content.below {
+        position: relative;
+        top: 0;
+        bottom: 0;
+      }
+  
+    .timeline-item .timeline-content.above {
+      /* Position above the line */
+      flex-direction: column;
+      left: 43%; /* Shift to the left */
+        transform: translateX(-45%);
+    }
+  
+    .timeline-item .timeline-content.below {
+      /* Position below the line */
+      left: 43%; /* Shift to the left */
+        transform: translateX(-45%);
+    }
+  
+    .timeline-item .timeline-point {
+      
+      width: 16px;
+      height: 16px;
+      background: #d4af37; /* Match the point color to the image */
+      border-radius: 50%;
+      top: 43%;
+        left: 10%;
+        transform: translate(-50%, -50%);
+      display: block; /* Ensure points are visible */
+      z-index: 2;
+    }
+  
+    .timeline-item .timeline-content > div {
+      text-align: left; /* Center text */
+    }
+    
+    button.prev,
+    button.next {
+      top: auto;
+      bottom: 10px; /* Position buttons at the bottom on mobile */
+      transform: none;
+      padding: 10px; /* Adjust padding for mobile view */
+      z-index: 3;
+      background-color: #d4af37; /* Button color */
+        margin-top: 30px;
+    }
+  
+    button.prev {
+      left: 10px;
+      /* margin-right: 20px; */
+    }
+  
+    button.next {
+      right:54vw;
+      /* margin-left: 20px; */
+    }
+    .year{
+        height: 100px;
+    }
+    .title{
+        /* padding-top: 40px; */
+        margin-top: 80px;
+    }
+   
+
+  }
+  @media (max-width: 478px) {
+    .timeline-container {
+        width: 100%;
+      margin-top: 0; /* Adjust margin for mobile view */
+     
+    }
+    .timeline-item .timeline-content {
+        width: 80%;
+        height: 350px;
+    }
+    .timeline-item .timeline-content.above {
+        /* Position above the line */
+        flex-direction: column;
+        left: 24%; /* Shift to the left */
+          transform: translateX(-45%);
+      }
+    
+      .timeline-item .timeline-content.below {
+        /* Position below the line */
+        left: 24%; /* Shift to the left */
+          transform: translateX(-45%);
+      }
+      .timeline-item .timeline-point {
+        top: 36%;
+      }
+}
+
+  /* General line styling */
